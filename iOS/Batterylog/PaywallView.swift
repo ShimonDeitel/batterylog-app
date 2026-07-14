@@ -26,7 +26,12 @@ struct PaywallView: View {
                             if purchases.isPro { dismiss() }
                         }
                     } label: {
-                        Text(purchases.product?.displayPrice.map { "Upgrade — \($0)" } ?? "Upgrade")
+                        Text(verbatim: {
+                            if let price = purchases.product?.displayPrice {
+                                return "Upgrade — \(price)"
+                            }
+                            return "Upgrade"
+                        }())
                             .font(Theme.headingFont)
                             .frame(maxWidth: .infinity)
                             .padding()

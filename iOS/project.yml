@@ -35,7 +35,6 @@ targets:
     platform: iOS
     sources:
       - path: BatterylogTests
-      - path: Batterylog.storekit
     dependencies:
       - target: Batterylog
     settings:
